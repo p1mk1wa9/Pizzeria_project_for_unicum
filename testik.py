@@ -1,3 +1,4 @@
+import p_box
 print("Добро пожаловать в пиццерию Фреди Фазбера!")
 login = "fR3449 f@z83r"
 input_login = input("Введите логин:")
@@ -65,49 +66,35 @@ if input_login == login:
             print(food_menu(food))
             food_guess = input(":")
             food_list = ["1","2","3","4","5","6","7"]
-            if food_guess == "1":
-                pizza_guess = input(":")
-                pizza_count = {"Маргарита" : 1, "Пеперони" : 2, "Карбонара большая" : 3, "Цыплёнок барбекю" : 4, "4 сыра" : 5}
-                pizza_price = {"Маргарита" : 400, "Пеперони" : 420, "Карбонара большая" : 500, "Цыплёнок барбекю" : 450, "4 сыра" : 450}
-                if pizza_guess == "1":
-                    print(pay_menu(pay))
-                    pay_guess = input(":")
-                    if pay_guess == "1":
-                        print("К оплате:", pizza_price.get("Маргарита"))
-                        pay_cash = int(input("Оплатите:"))
-                        if pay_cash >= pizza_price.get("Маргарита"):
-                            print("Ваша сдача:", pay_cash - pizza_price.get("Маргарита"))
-                            print("Спасибо за покупку :)")
-                            print(question_menu(question))
-                            question_guess = input(":")
-                            if question_guess == "1":
-                                continue
-                            else:
-                                print("Хорошего дня!")
-                                exit()
-                    elif pay_guess == "2":
-                        print("К оплате:", pizza_price.get("Маргарита"))
-                        print("Успешно!")
-                        print("Спасибо за покупку :)")
-                        print(question)
-                        print(question_menu(question))
-                        question_guess = input(":")
-                        if question_guess == "1":
-                            continue
-                        else:
-                            print("Хорошего дня!")
-                            exit()
-            elif food_guess == "2":
-                print(sushi_menu(sushi_rolls))
-                sushi_guess = input(":")
-                if sushi_guess == "1":
-            elif food_guess == "3":
-                print("Этот вариант временно недоступен :(")
-            elif food_guess == "4":
-                print("Этот вариант временно недоступен :(")
-            elif food_guess == "5":
-                print("Этот вариант временно недоступен :(")
-            elif food_guess == "6":
-                print("Этот вариант временно недоступен :(")
-            elif food_guess == "7":
-                print("Этот вариант временно недоступен :(")
+            food_count = {"Пиццы" : 1, "Суши/Роллы" : 2, "Кальсони" : 3, "Салаты" : 4, "Супы" : 5, "Напитки" : 6, "Мороженое" : 7}
+            food_name = {"Пиццы" : pizza, "Суши/Роллы" : sushi_rolls}
+            exactly_guess = input(food_name.get(p_box.get_key(food_count, int(food_guess))))
+            pizza_count = {"Маргарита" : 1, "Пеперони" : 2, "Карбонара большая" : 3, "Цыплёнок барбекю" : 4, "4 сыра" : 5}
+            pizza_price = {"Маргарита" : 400, "Пеперони" : 420, "Карбонара большая" : 500, "Цыплёнок барбекю" : 450, "4 сыра" : 450}
+            print(pay_menu(pay))
+            pay_guess = input(":")
+            if pay_guess == "1":
+                print("К оплате:", pizza_price.get(p_box.get_key(pizza_count, int(exactly_guess))))
+                pay_cash = int(input("Оплатите:"))
+                if pay_cash >= pizza_price.get(p_box.get_key(pizza_count, exactly_guess)):
+                    print("Ваша сдача:", pay_cash - pizza_price.get(p_box.get_key(pizza_count, exactly_guess)))
+                    print("Спасибо за покупку :)")
+                    print(question_menu(question))
+                    question_guess = input(":")
+                    if question_guess == "1":
+                        continue
+                    else:
+                        print("Хорошего дня!")
+                        exit()
+            elif pay_guess == "2":
+                print("К оплате:", pizza_price.get("Маргарита"))
+                print("Успешно!")
+                print("Спасибо за покупку :)")
+                print(question)
+                print(question_menu(question))
+                question_guess = input(":")
+                if question_guess == "1":
+                    continue
+                else:
+                    print("Хорошего дня!")
+                    exit()
