@@ -1,0 +1,43 @@
+n1 = int(input("num1:"))
+n2 = int(input("num2:"))
+class Rectangle:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's rectangle square")
+
+    def square(self):
+        print(n1 * n2)
+
+
+class Circle:
+    def __init__(self, n1):
+        self.n1 = n1
+
+    def info(self):
+        print(f"It's circle square")
+
+    def square(self):
+        print(3.14 * n1 ** 2)
+
+class Triangle:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's triangle square")
+
+    def square(self):
+        print(0.5 * n1 * n2)
+
+
+rect = Rectangle(n1, n2)
+circle = Circle(n1)
+triangle = Triangle(n1, n2)
+
+for squares in (rect, circle, triangle):
+    squares.info()
+    squares.square()
