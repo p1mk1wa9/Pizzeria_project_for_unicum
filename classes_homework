@@ -1,0 +1,139 @@
+name = input("Ваше имя:")
+age = input("Ваш возраст:")
+heigth = input("Ваш рост:")
+guess = input("Вы учитель или студент? \n1>>>Учитель \n2>>>Студент")
+class UnicumPeople:
+    def __init__(self, name, age, height):
+        self.name = name
+        self.age = age
+        self.height = height
+
+    def info(self, name, age, height):
+        print("Имя:", name, "возраст:", age, "рост:", height)
+
+class Teacher(UnicumPeople):
+    def teach_subject(self, subject, name):
+        print(f"{name} преподаёт предмет {subject}")
+
+class Student(UnicumPeople):
+    def study_on_grade(self, grade, name):
+        print(f"Студент {name} учится в классе под номером {grade}")
+
+unicum = UnicumPeople(name, age, heigth)
+unicum.info(name, age, heigth)
+if guess == "1":
+    subject = input("Какой предмет Вы преподаёте?:")
+    teacher = Teacher(name, subject, heigth)
+    teacher.teach_subject(name, subject)
+else:
+    grade = int(input("В каком ты классе?:"))
+    student = Student(name, grade, heigth)
+    student.study_on_grade(name, grade)
+#######----------------------------------
+class People:
+    def __init__(self, name, age, height):
+        self.name = name
+        self.age = age
+        self.heigth = height
+
+    def info(self, name, age, height):
+        print("Имя:", name, "возраст:", age, "рост:", height)
+
+class Male(People):
+    gender = "Мужской"
+    def print_male(self, gender):
+        print("Пол", gender)
+
+class Female(People):
+    gender = "Женский"
+    def print_female(self, gender):
+        print("Пол", gender)
+
+people = People(name, age, heigth)
+people.info(name, age, heigth)
+male = Male(Male.gender, age, heigth)
+male.print_male(Male.gender)
+female = Female(Female.gender, age, heigth)
+female.print_female(Female.gender)
+###-----------------------------------------------
+n1 = int(input("num1:"))
+n2 = int(input("num2:"))
+class Rectangle:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's rectangle square")
+
+    def square(self):
+        print(n1 * n2)
+
+
+class Circle:
+    def __init__(self, n1):
+        self.n1 = n1
+
+    def info(self):
+        print(f"It's circle square")
+
+    def square(self):
+        print(3.14 * n1 ** 2)
+
+class Triangle:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's triangle square")
+
+    def square(self):
+        print(0.5 * n1 * n2)
+
+
+rect = Rectangle(n1, n2)
+circle = Circle(n1)
+triangle = Triangle(n1, n2)
+
+for squares in (rect, circle, triangle):
+    squares.info()
+    squares.square()
+n1 = int(input("num1:"))
+n2 = int(input("num2:"))
+class Ellipse:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's ellipse square")
+
+    def square(self):
+        print(3.14 * 0.5 * n1 * n2)
+
+class Triangle:
+    def __init__(self, n1, n2):
+        self.n1 = n1
+        self.n2 = n2
+
+    def info(self):
+        print(f"It's triangle square")
+
+    def square(self):
+        print(0.5 * n1 * n2)
+
+
+ellipse = Ellipse(n1, n2)
+triangle = Triangle(n1, n2)
+
+for squares in (ellipse, triangle):
+    squares.info()
+    squares.square()
+###--------------------------------------------------------------
+class Phone:
+    __phone_number = "443454332452124241421421"
+phone = Phone()
+phone.__phone_number = 9789
+print(phone.__phone_number)
+###-------------------------------------------------------------
